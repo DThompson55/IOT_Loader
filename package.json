@@ -1,0 +1,26 @@
+{
+  "name": "iot3-utility",
+  "main":"iot3.js",
+  "version":"0.1",
+  "description": "A utility to load csv files into Watson IOT",
+  "publishConfig": {
+    "access": "public"
+  },
+
+    "scripts": {
+    "example": "node iot3.js -d DTT001 -t DannyDeviceType -f 'test/MockData.csv' -e EV01 -T '' --ignoreColumn ROWID  -dryRun -v",
+    "example_2": "node iot3.js -d DTT001 -t DannyDeviceType -f 'test/MockData.csv' -e EV01 -T '' --ignoreColumn ROWID -v",
+    "start":  "node iot3.js",
+    "auth-check": "node iot3.js -x"
+  },
+  "dependencies": {
+    "@wiotp/sdk": "^0.7.8",
+    "csv-parser": "^3.0.0",
+    "yargs": "^15.1.0"
+  },
+  "author": {
+    "name": "Daniel Thompson",
+    "email": "danlthom@us.ibm.com"
+  },
+  "license": "EPL-1.0"
+}
