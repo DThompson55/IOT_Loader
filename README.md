@@ -31,9 +31,11 @@ npm start -- --deviceId DTT001   // which deviceID to send to
   --dryrun                       // optionally do not send to IOT
 ```
 ## About Date Manipulation
-```
-The test suites all have dates preset in the past. But what if you want to make them
-appear current? Date Math! If you have both the NewBase and OldBase args set, we'll do 
-the math to apply the difference to the entire file. Magic.
-```
-  
+Most test suites all have their dates preset in the past. But what if you want to make them appear current? Date Math! If you have both the NewBase and OldBase args set, we'll do the math to apply the difference to the entire file. Magic.
+
+For example if your test set starts on 1/1/2019 through 12/31/2019 and you want to have it start on today's date you'd use -n <today's date> -o 1/1/2019. If you wanted it to start on 1/1/202 you'd use -n 1/1/2020 -o 1/1/2019. If you wanted it to end on today's date you'd use -n <today's date> -o 12/31/2019, etc.
+
+Date formats are currently hard coded to MM/DD/YY HH:DD with leading zeros truncated. A future enhancement idea would be to pass in a date format.
+
+## Abends
+Throws exceptions if the timestamp field is empty, and prints the current row.  

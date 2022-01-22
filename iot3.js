@@ -128,8 +128,8 @@ if ( auth_check ){
         (row[timestampColumn]) = fixTimeStamp((row[timestampColumn]));
     } catch (exp){
       console.error(exp)
-      console.error("Row"+row);
-      throw new Error("Bad CSV Row")
+      console.error("Row "+JSON.stringify(row));
+      throw new Error("CVS Data "+JSON.stringify(row))
     }
     if (ignoreColumn)
         delete row[ignoreColumn];
