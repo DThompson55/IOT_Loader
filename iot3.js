@@ -5,6 +5,7 @@
 // Add your Watson IOT key and token to bash shell
 // export WIOTP_API_KEY='a-04tdsgxxxxxxxxxxx'
 // export WIOTP_API_TOKEN='MK(Mxxxxxxxxxxx'
+// or put them in a .env file
 //
 // from commandline: (installs dependencies)
 //  npm install
@@ -18,9 +19,11 @@
 // -e EV01 -T "" --ignoreColumn ROWID --newBase "1/19/22 1:05" --oldBase "1/19/22 1:05" --dryRun=false
 // -auth_check
 //
+const dotenv = require('dotenv');
 const fs = require('fs');
 const csv = require('csv-parser');
 const sdk = require('@wiotp/sdk');
+dotenv.config();
 var ApplicationClient = sdk.ApplicationClient;
 var ApplicationConfig = sdk.ApplicationConfig;
 let appConfig = ApplicationConfig.parseEnvVars();
@@ -72,6 +75,10 @@ if ( auth_check ){
    console.log("auth check failed: set your Watson IOT key and token in ~/.bash_profile or ~/.zprofile on mac:")
    console.log('"export WIOTP_API_KEY="a-04tdsg-pohxaxxxxx"')
    console.log('"export WIOTP_API_TOKEN="MK(MelUtwX0uxxxxx"')
+   console.log("or add these lines to your .env file")
+   console.log('"WIOTP_API_KEY="a-04tdsg-pohxaxxxxx"')
+   console.log('"WIOTP_API_TOKEN="MK(MelUtwX0uxxxxx"')
+   
    process.exit();
  }
   let appClient = new ApplicationClient(appConfig);
